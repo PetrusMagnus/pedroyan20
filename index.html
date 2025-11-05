@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedro Yan - 20 Anos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #1a1a1a;
+            --accent: #ff4d00;
+            --accent-light: #ff7b33;
+            --text: #f0f0f0;
+            --text-secondary: #b0b0b0;
+            --card-bg: rgba(30, 30, 30, 0.7);
+            --spacing-sm: 15px;
+            --spacing-md: 30px;
+            --spacing-lg: 60px;
+            --border-radius: 12px;
+            --glow: 0 0 15px rgba(255, 77, 0, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            min-height: 100vh;
+        }
+        
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        header {
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: var(--spacing-sm);
+            display: inline-block;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+        }
+        
+        .logo:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            background: linear-gradient(45deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: '20';
+            position: absolute;
+            top: -20px;
+            right: -30px;
+            font-size: 1.5rem;
+            color: var(--accent);
+            background: var(--secondary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent);
+            animation: pulse 2s infinite;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-md);
+        }
+        
+        .hero {
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .age-display {
+            font-size: 8rem;
+            font-weight: 800;
+            margin: var(--spacing-md) 0;
+            background: linear-gradient(45deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: var(--glow);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .age-display::before, .age-display::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        
+        .age-display::before {
+            right: 100%;
+            margin-right: 20px;
+        }
+        
+        .age-display::after {
+            left: 100%;
+            margin-left: 20px;
+        }
+        
+        .date {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: var(--spacing-md);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .hero-text {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        
+        .funny-quote {
+            background: var(--card-bg);
+            border-left: 4px solid var(--accent);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) auto;
+            max-width: 600px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .funny-quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            opacity: 0.3;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-light);
+        }
+        
+        .photos-section {
+            padding: var(--spacing-lg) 0;
+        }
+        
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+        
+        .photo-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            aspect-ratio: 1 / 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 77, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .photo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 77, 0, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--glow);
+            border-color: var(--accent);
+        }
+        
+        .photo-card:hover::before {
+            opacity: 1;
+        }
+        
+        .photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+        
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-card:hover .photo-caption {
+            transform: translateY(0);
+        }
+        
+        .memes-section {
+            padding: var(--spacing-lg) 0;
+        }
+        
+        .meme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+        
+        .meme-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            aspect-ratio: 1 / 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 77, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .meme-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 77, 0, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .meme-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: var(--glow);
+            border-color: var(--accent);
+        }
+        
+        .meme-card:hover::before {
+            opacity: 1;
+        }
+        
+        .meme-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+        
+        .meme-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .meme-card:hover .meme-caption {
+            transform: translateY(0);
+        }
+        
+        .counter {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            text-align: center;
+            margin: var(--spacing-lg) auto;
+            max-width: 500px;
+            border: 1px solid var(--accent);
+        }
+        
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: var(--spacing-sm) 0;
+        }
+        
+        .counter-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: var(--spacing-lg);
+            color: var(--text-secondary);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 0, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 77, 0, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 0, 0); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .age-display {
+                font-size: 5rem;
+            }
+            
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles-js"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">PY20</div>
+            <h1>Pedro Yan</h1>
+            <div class="subtitle">Celebrando duas décadas de fazer merda e aprender (mais ou menos)</div>
+        </header>
+        
+        <section class="hero">
+            <div class="age-display floating">20</div>
+            <div class="date">04 de Novembro de 2025</div>
+            <p class="hero-text">Duas décadas sobrevivendo aos próprios erros e rindo deles depois!</p>
+            
+            <div class="funny-quote">
+                "Finalmente posso dizer que não sou mais um adolescente... mas ainda me sinto como um de 15 anos com mais responsabilidades"
+            </div>
+        </section>
+        
+        <div class="counter">
+            <div class="counter-number" id="days-counter">0</div>
+            <div class="counter-text">dias desde a última vez que o Pedro falou "é só hoje"</div>
+        </div>
+        
+        <section class="photos-section">
+            <h2 class="section-title">As Fotos que Vão Envergonhar Ele no Futuro</h2>
+            <div class="photo-grid">
+                <div class="photo-card">
+                    <img src="/assets/foto1.jpg" alt="Pedro com cara de sono" class="photo-img" onerror="this.style.display='none'">
+                    <div class="photo-caption">Quando percebeu que 20 anos = contas pra pagar</div>
+                </div>
+                <div class="photo-card">
+                    <img src="/assets/foto2.jpg" alt="Pedro fazendo pose" class="photo-img" onerror="this.style.display='none'">
+                    <div class="photo-caption">Tentando parecer adulto e conseguindo por pagar para os amigos</div>
+                </div>
+                <div class="photo-card">
+                    <img src="/assets/foto3.jpg" alt="Pedro com amigos" class="photo-img" onerror="this.style.display='none'">
+                    <div class="photo-caption">A galera que vai ter que aturar ele por mais 20 anos</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="memes-section">
+            <h2 class="section-title">Memes que Definem a Vida do Pedro</h2>
+            <div class="meme-grid">
+                <div class="meme-card">
+                    <img src="/assets/meme1.jpg" alt="Meme 1" class="meme-img" onerror="this.style.display='none'">
+                    <div class="meme-caption">Quando ele fala que vai acordar cedo</div>
+                </div>
+                <div class="meme-card">
+                    <img src="/assets/meme2.jpg" alt="Meme 2" class="meme-img" onerror="this.style.display='none'">
+                    <div class="meme-caption">Tentando ser produtivo vs realidade</div>
+                </div>
+                <div class="meme-card">
+                    <img src="/assets/meme3.jpg" alt="Meme 3" class="meme-img" onerror="this.style.display='none'">
+                    <div class="meme-caption">Pedro explicando porque chegou atrasado... de novo</div>
+                </div>
+                <div class="meme-card">
+                    <img src="/assets/meme4.jpg" alt="Meme 4" class="meme-img" onerror="this.style.display='none'">
+                    <div class="meme-caption">"Eu juro que dessa vez vou me organizar"</div>
+                </div>
+                <div class="meme-card">
+                    <img src="/assets/meme5.jpg" alt="Meme 5" class="meme-img" onerror="this.style.display='none'">
+                    <div class="meme-caption">Quando a mãe pergunta se ele já lavou a louça</div>
+                </div>
+                <div class="meme-card">
+                    <img src="/assets/meme6.jpg" alt="Meme 6" class="meme-img" onerror="this.style.display='none'">
+                    <div class="meme-caption">Pedro tentando cozinhar algo que não seja miojo</div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">PY20</div>
+                <p>Celebrando os 20 anos de Pedro Yan • 04/11/2025</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Função para criar partículas no fundo
+        function createParticles() {
+            const container = document.getElementById('particles-js');
+            const colors = ['#ff4d00', '#ff7b33', '#ff9966', '#ffcc00'];
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 5 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.borderRadius = '50%';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.opacity = Math.random() * 0.5 + 0.2;
+                
+                // Animação de flutuação
+                const duration = Math.random() * 20 + 10;
+                particle.style.animation = `float ${duration}s ease-in-out infinite`;
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Contador zoeiro
+        function setupCounter() {
+            const counter = document.getElementById('days-counter');
+            // Número aleatório entre 0 e 3 para a zoeira
+            const randomDays = Math.floor(Math.random() * 4);
+            counter.textContent = randomDays;
+        }
+        
+        // Verificar se as imagens existem e mostrar fallback se não
+        function checkImages() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.onerror = function() {
+                    this.style.display = 'none';
+                    const card = this.parentElement;
+                    
+                    // Criar fallback divertido
+                    const fallback = document.createElement('div');
+                    fallback.style.width = '100%';
+                    fallback.style.height = '100%';
+                    fallback.style.display = 'flex';
+                    fallback.style.flexDirection = 'column';
+                    fallback.style.alignItems = 'center';
+                    fallback.style.justifyContent = 'center';
+                    fallback.style.color = 'var(--accent)';
+                    fallback.innerHTML = `
+                        <i class="fas fa-question-circle" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                        <div style="text-align: center; font-size: 0.9rem;">Imagem não encontrada<br><small>Pedro deve ter escondido</small></div>
+                    `;
+                    
+                    card.appendChild(fallback);
+                };
+            });
+        }
+        
+        // Inicialização quando a página carrega
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            setupCounter();
+            checkImages();
+            
+            // Adiciona efeito de digitação no subtítulo
+            const subtitle = document.querySelector('.subtitle');
+            const text = subtitle.textContent;
+            subtitle.textContent = '';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < text.length) {
+                    subtitle.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            };
+            
+            setTimeout(typeWriter, 1000);
+        });
+    </script>
+</body>
+</html>
